@@ -7,16 +7,15 @@
 - Inside the `src\config` folder create a new file `config.json` and then add the following piece of json
     ```{
         "development": {
-            "username": <root/Your db login name>,
-            "password": <Password>
-            "database": "database name",
             "username": "root",
             "password": <Password>
             "database": "Flights_Search_DB_Dev",
+            "username": <root/Your db login name>,
+            "password": <Password>
+            "database": "database name",
             "host": "127.0.0.1",
             "dialect": "mysql"
             }
         }
     ```
-- Once you have added your db config as listed above, go to src folder and  excecute `npx sequelize db:create`
-- 
+- Once you have added your db config as listed above, go to src folder and  excecute `npx sequelize db:create`\
