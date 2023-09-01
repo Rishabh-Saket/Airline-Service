@@ -4,7 +4,7 @@ const cityService=new CityService();
 //POST--> city/
 const create=async (request,response)=>{
     try {
-        const city=await cityService.create(request.body);
+        const city=await cityService.createCity(request.body);
         return response.status(201).json({
             data: city,
             success: true,
