@@ -64,6 +64,27 @@ const get=async (request,response)=>{
     }
 }
 
+//GET--> /city
+const getAll=async (request,response)=>{
+    try {
+        const cities=await cityService.getAllCities();
+        return response.status(200).json({
+            data: cities,
+            success: true,
+            message: "successfully fetched all cities",
+            err: {}
+        });
+    } catch (error) {
+        console.log(error);
+        return response.status(500).json({
+            data: {},
+            success: false,
+            message: "not able to get the cities",
+            err: error
+        });
+    }
+}
+
 //PATCH--> /city/:id-> req.body
 const update= async (request,response)=>{
     try {
@@ -89,5 +110,6 @@ module.exports={
     create,
     destroy,
     update,
-    get
+    get,
+    getAll
 }
