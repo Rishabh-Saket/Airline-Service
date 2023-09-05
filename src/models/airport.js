@@ -22,11 +22,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    address: DataTypes.STRING,
-    cityId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    }
+    address: {
+      type: DataTypes.STRING
+    },
+    cityId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Airport',
