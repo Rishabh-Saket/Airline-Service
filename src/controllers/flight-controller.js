@@ -1,3 +1,4 @@
+const { request, response } = require('express');
 const {FlightService}=require('../services/index');
 
 const flightService=new FlightService();
@@ -52,7 +53,51 @@ const getAll= async (request,response)=>{
     }
 }
 
+const get= async (request,response)=>{
+    try {
+        const flight=await flightService.getFlight(request.params.id);
+        return response.status(200).json({
+            data: flight,
+            success: true,
+            message: 'successfully fetched the flights',
+            err: {}
+        })
+    } catch (error) {
+        console.log(error);
+        return response.status(500).json({
+            data: {},
+            success: false,
+            message: "Not able to fetch the flight",
+            err: error
+        });
+    }
+}
+
+
+const update= async (request,response)=>{
+    try {
+        const flight=await flightService.updateFlight(request.params.id,request.body);
+        return response.status(200).json({
+            data: flight,
+            success: true,
+            message: 'successfully updated the flights',
+            err: {}
+        })
+    } catch (error) {
+        console.log(error);
+        return response.status(500).json({
+            data: {},
+            success: false,
+            message: "Not able to update the flight",
+            err: error
+        });
+    }
+}
+
+
 module.exports={
     create,
-    getAll
+    getAll,
+    get,
+    update
 }
